@@ -1,0 +1,56 @@
+display:
+  default:
+    display_title: Головне
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Фільтр
+          reset_button_label: Скинути
+          exposed_sorts_label: 'Сортувати за'
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Елементів на сторінку'
+            items_per_page_options_all_label: '- Усе -'
+            offset_label: Зміщення
+      fields:
+        filename:
+          label: 'Назва (ім''я)'
+        filesize:
+          label: Розмір
+        status:
+          label: Стан
+        count:
+          label: 'Використано в'
+      filters:
+        filename:
+          expose:
+            label: 'Ім''я файлу'
+        status:
+          expose:
+            label: Стан
+      title: Файли
+  page_1:
+    display_options:
+      menu:
+        title: Файли
+  page_2:
+    display_options:
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Елементів на сторінку'
+            items_per_page_options_all_label: '- Усе -'
+            offset_label: Зміщення
+      fields:
+        entity_label:
+          label: Елемент
+        type:
+          label: 'Тип сутності'
+        count:
+          label: 'Підрахунок використань'
+      arguments:
+        fid:
+          exception:
+            title: Все
+label: Файли

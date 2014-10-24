@@ -1,0 +1,33 @@
+uuid: beb91423-7c78-4aa2-9b32-50ea7231d343
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - stark
+id: languageswitcher
+theme: stark
+region: sidebar_first
+weight: null
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  visibility:
+    language:
+      id: language
+      langcodes:
+        en: en
+        uk: uk
+      negate: false
+    request_path:
+      id: request_path
+      pages: ''
+      negate: false
+  id: 'language_block:language_interface'
+  label: 'Language switcher'
+  provider: language
+  label_display: visible
+  cache:
+    max_age: 0
+    contexts: {  }

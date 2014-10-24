@@ -1,0 +1,10 @@
+session:
+  parameter: language
+url:
+  source: path_prefix
+  prefixes:
+    en: ''
+    uk: uk
+  domains:
+    en: ''
+    uk: ''

@@ -1,12 +1,22 @@
+uuid: c7cd420f-4522-4926-a457-875a55099cf6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.admin
+  module:
+    - system
+  theme:
+    - stark
 id: stark_admin
 theme: stark
-weight: 1
-status: true
-langcode: en
 region: sidebar_first
+weight: 1
+provider: null
 plugin: 'system_menu_block:admin'
 settings:
   visibility: {  }
+  id: 'system_menu_block:admin'
   label: Administration
   provider: system
   label_display: visible
@@ -15,10 +25,3 @@ settings:
     contexts: {  }
   level: 1
   depth: 0
-dependencies:
-  config:
-    - system.menu.admin
-  module:
-    - system
-  theme:
-    - stark

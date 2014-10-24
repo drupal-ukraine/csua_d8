@@ -1,0 +1,16 @@
+label: 'Нове на сайті'
+display:
+  default:
+    display_title: Головне
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Застосувати
+          reset_button_label: Скинути
+          exposed_sorts_label: 'Сортувати за'
+      title: 'Нове на сайті'
+      empty:
+        area_text_custom:
+          content: 'Матеріали відсутні.'
+  block_1:
+    display_title: Блок
