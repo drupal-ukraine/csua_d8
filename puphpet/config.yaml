@@ -71,7 +71,7 @@ apache:
         - rewrite
     vhosts:
         EYZeANveIIwp:
-            servername: drupal.192.168.56.132.xip.io
+            servername: drupal.192.168.56.133.xip.io
             docroot: /var/www/drupal
             port: '80'
             override:
