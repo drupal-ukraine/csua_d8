@@ -29,7 +29,11 @@
 
   - name: Removing tmp folder
     sudo: yes
-    shell: "chmod -R 777 sites/default && rm -rf sites/default/files"
+    shell: "chmod -R 777 sites/default && rm -rf sites/default/files && rm -f sites/default/services.yml"
+
+  - name: Cooking defaults
+    sudo: yes
+    shell: "cp sites/default/default.services.yml sites/default/services.yml"
 
   - name: Installing drupal
     sudo: yes
