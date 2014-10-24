@@ -1,22 +1,12 @@
-uuid: 83da1245-6355-458e-be06-6f922b72e5e3
-langcode: en
-status: true
-dependencies:
-  config:
-    - system.menu.tools
-  module:
-    - system
-  theme:
-    - stark
 id: stark_tools
 theme: stark
-region: sidebar_first
 weight: 0
-provider: null
+status: true
+langcode: en
+region: sidebar_first
 plugin: 'system_menu_block:tools'
 settings:
   visibility: {  }
-  id: 'system_menu_block:tools'
   label: Tools
   provider: system
   label_display: visible
@@ -25,3 +15,10 @@ settings:
     contexts: {  }
   level: 1
   depth: 0
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - stark
