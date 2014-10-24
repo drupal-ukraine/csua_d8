@@ -5,13 +5,13 @@ vagrantfile-local:
         box_url: 'http://box.puphpet.com/ubuntu-precise12042-x64-vbox43.box'
         hostname: null
         network:
-            private_network: 192.168.56.132
+            private_network: 192.168.56.133
             forwarded_port:
                 CocLsFE7aIwA:
-                    host: '8080'
+                    host: '8090'
                     guest: '80'
                 CocLsFE7aIwE:
-                    host: '8083'
+                    host: '8093'
                     guest: '3306'
         provider:
             virtualbox:
@@ -136,7 +136,7 @@ xdebug:
 drush:
     install: '1'
     settings:
-        drush.tag_branch: 6.x
+        drush.tag_branch: master
 mysql:
     install: '1'
     root_password: root
