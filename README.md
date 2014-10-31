@@ -1,4 +1,4 @@
-drupal 8 project
+Drupal 8 project
 ======
 
 Drupal project is for CodeSprint UA 2014
