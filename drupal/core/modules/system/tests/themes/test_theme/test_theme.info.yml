@@ -11,8 +11,8 @@
 name: 'Test theme'
 type: theme
 description: 'Theme for testing the theme system'
-version: VERSION
-core: 8.x
+# version: VERSION
+# core: 8.x
 stylesheets-remove:
   - system.module.css
 settings:
@@ -21,3 +21,9 @@ regions:
   content: Content
   left: Left
   right: Right
+
+# Information added by Drupal.org packaging script on 2014-11-01
+version: '8.0.0-beta2+126-dev'
+core: '8.x'
+project: 'drupal'
+datestamp: 1414850443
