@@ -18,19 +18,19 @@
 #}
 
 <div>
-  {% if nodes|length > 0 %}
-    {% for node in nodes %}
+  {% if nodes|length > 0 -%}
+    {% for node in nodes -%}
       <div class="faq-question-answer">
         <div class="faq-question faq-dt-hide-answer">
           {{ node.question }}
-        </div><!-- Close div: faq-question faq-dt-hide-answer -->
+        </div>
         <div class="faq-answer faq-dd-hide-answer">
           {{ node.body }}
-          {% if node.links is defined %}
+          {% if node.links is defined -%}
             {{ node.links }}
           {% endif %}
-        </div><!-- Close div: faq-answer faq-dd-hide-answer -->
-      </div><!-- Close div: faq-question-answer -->
+        </div>
+      </div>
     {% endfor %}
   {% endif %}
-</div><!-- Close div -->
+</div>

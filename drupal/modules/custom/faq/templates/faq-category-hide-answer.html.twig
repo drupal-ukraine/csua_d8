@@ -45,73 +45,69 @@
 {% endif %}
 
 <div class="faq-category-group">
-  <!-- category header with title, link, image, description, and count of questions inside -->
   <div class="faq-qa-header">
-    {% if display_header %}
-    <{{ hdr }} class="faq-header">
+    {% if display_header -%}
+     <{{ hdr }} class="faq-header">
+        {{ term_image }}
+        {{ header_title }}
+        {% if display_faq_count -%}
+          ({{ question_count }})
+        {% endif %}
+      </{{ hdr }}>
+    {% else %}
     {{ term_image }}
-    {{ header_title }}
-    {% if display_faq_count %}
-      ({{ question_count }})
+  {% endif %}
+
+    {% if description is not empty -%}
+      <div class="faq-qa-description">{{ description }}</div>
     {% endif %}
-  </{{ hdr }}>
-  {% else %}
-    {{ term_image }}
-  {% endif %}
-
-  {% if description is not empty %}
-    <div class="faq-qa-description">{{ description }}</div>
-  {% endif %}
-  {% if term_image is not empty %}
-    <div class="clear-block"></div>
-  {% endif %}
-</div><!-- Close div: faq-qa-header -->
-
-{% if subcat_list is not empty %}
-  <!-- list subcategories, with title, link, description, count -->
-  <div class="item-list">
-  <{{ subcat_list_style }} class="faq-category-list">
-  {% for subcat in subcat_list %}
-    <li>
-      {{ subcat.link }}
-      {% if display_faq_count %}
-        ({{ subcat.count }})
-      {% endif %}
-      {% if subcat.description is not empty %}
-        <div class="faq-qa-description">{{ subcat.description }}</div>
-      {% endif %}
+    {% if term_image is not empty -%}
       <div class="clear-block"></div>
-    </li>
-  {% endfor %}
-  </{{ subcat_list_style }}>
-  </div><!-- Close div: item-list -->
-{% endif %}
+    {% endif %}
+  </div>
 
-<div class="{{ container_class }}">
-  <!-- include subcategories -->
-  {% if subcat_body_list|length > 0 %}
-    {% for subcat_html in subcat_body_list %}
-      <div class="faq-category-indent">{{ subcat_html }}</div>
-    {% endfor %}
+  {% if subcat_list is not empty -%}
+    <div class="item-list">
+      <{{ subcat_list_style }} class="faq-category-list">
+        {% for subcat in subcat_list %}
+          <li>
+            {{ subcat.link }}
+            {% if display_faq_count %}
+              ({{ subcat.count }})
+            {% endif %}
+            {% if subcat.description is not empty %}
+              <div class="faq-qa-description">{{ subcat.description }}</div>
+            {% endif %}
+            <div class="clear-block"></div>
+          </li>
+        {% endfor %}
+      </{{ subcat_list_style }}>
+    </div>
   {% endif %}
 
-  <!-- list questions (in title link) and answers (in body) -->
-  <div class="faq-dl-hide-answer">
-    {% if nodes|length > 0 %}
-      {% for node in nodes %}
-        <div class="faq-question-answer">
-          <div class="faq-question faq-dt-hide-answer">
-            {{ node.question }}
-          </div><!-- Close div: faq-question faq-dt-hide-answer -->
-          <div class="faq-answer faq-dd-hide-answer">
-            {{ node.body }}
-            {% if node.links is defined %}
-              {{ node.links }}
-            {% endif %}
-          </div><!-- Close div: faq-answer faq-dd-hide-answer -->
-        </div><!-- Close div: faq-question-answer -->
+  <div class="{{ container_class }}">
+    {% if subcat_body_list|length > 0 %}
+      {% for subcat_html in subcat_body_list %}
+        <div class="faq-category-indent">{{ subcat_html }}</div>
       {% endfor %}
     {% endif %}
-  </div><!-- Close div: faq-dl-hide-answer -->
-</div><!-- Close div: faq-qa / faq-qa-hide -->
-</div><!-- Close div: faq-category-group -->
+
+    <div class="faq-dl-hide-answer">
+      {% if nodes|length > 0 %}
+        {% for node in nodes %}
+          <div class="faq-question-answer">
+            <div class="faq-question faq-dt-hide-answer">
+              {{ node.question }}
+            </div>
+            <div class="faq-answer faq-dd-hide-answer">
+              {{ node.body }}
+              {% if node.links is defined %}
+                {{ node.links }}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>

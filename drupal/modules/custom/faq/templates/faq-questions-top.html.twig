@@ -26,10 +26,10 @@
 <a id="top"></a>
 
 {{ questions_list }}
-<br />
-{% for item in answers|slice(0, limit) %}
+
+{% for item in answers|slice(0, limit) -%}
   <div class="faq-question">
-    {% if question_label is not empty %}
+    {% if question_label is not empty -%}
       <strong class="faq-question-label">
         {{ question_label }}
       </strong>
@@ -37,7 +37,7 @@
     {{ item.question }}
   </div>
   <div class="faq-answer">
-    {% if answer_label is not empty %}
+    {% if answer_label is not empty -%}
       <strong class="faq-answer-label">
         {{ answer_label }}
       </strong>

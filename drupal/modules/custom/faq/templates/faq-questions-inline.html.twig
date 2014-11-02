@@ -22,7 +22,6 @@
 <div>
   {% if nodes|length > 0 %}
     {% for node in nodes %}
-      <br />
       <div class="faq-question">
         {% if question_label is not empty %}
           <strong>
@@ -30,7 +29,7 @@
           </strong>
         {% endif %}
         {{ node.question }}
-      </div><!-- Close div: faq-question -->
+      </div>
       <div class="faq-answer">
         {% if answer_label is not empty %}
           <strong>
@@ -41,7 +40,7 @@
         {% if node.links is defined %}
           {{ node.links }}
         {% endif %}
-      </div><!-- Close div: faq-answer -->
+      </div>
     {% endfor %}
   {% endif %}
-</div><!-- Close div -->
+</div>

@@ -18,12 +18,12 @@
 
 <div class="faq-content">
   <div class="faq">
-    {% if description is not empty %}
+    {% if description is not empty -%}
       <div class="faq-description">
         {{ description }}
       </div>
     {% endif %}
-    {% if faq_expand %}
+    {% if faq_expand -%}
       <div id="faq-expand-all">
         <a class="faq-expand-all-link" href="#faq-expand-all-link">[{{ 'expand all'|t }}]</a>
         <a class="faq-collapse-all-link" href="#faq-collapse-all-link">[{{ 'collapse all'|t }}]</a>
