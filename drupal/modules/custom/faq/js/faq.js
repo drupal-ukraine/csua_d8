@@ -4,12 +4,7 @@
 
     function teaser_handler(event) {
         if ($("input[name=faq_display]:checked").val() != "new_page") {
-            if ($("input[name=faq_use_teaser]:checked").val() == 1) {
-                $("input[name=faq_more_link]").prop("disabled", false);
-            }
-            else {
-                $("input[name=faq_more_link]").prop("disabled", true);
-            }
+            $("input[name=faq_more_link]").prop("disabled", $("input[name=faq_use_teaser]:checked").val() != 1);
         }
     }
 
@@ -19,14 +14,8 @@
             $("input[name=faq_back_to_top]").prop("disabled", false);
             $("input[name=faq_qa_mark]").prop("disabled", false);
             // Enable / disable label settings according to "qa_mark" setting.
-            if ($("input[name=faq_qa_mark]:checked").val() == 1) {
-                $("input[name=faq_question_label]").prop("disabled", false);
-                $("input[name=faq_answer_label]").prop("disabled", false);
-            }
-            else {
-                $("input[name=faq_question_label]").prop("disabled", true);
-                $("input[name=faq_answer_label]").prop("disabled", true);
-            }
+            $("input[name=faq_question_label]").prop("disabled", $("input[name=faq_qa_mark]:checked").val() != 1);
+            $("input[name=faq_answer_label]").prop("disabled", $("input[name=faq_qa_mark]:checked").val() != 1);
         }
         else {
             $("input[name=faq_back_to_top]").prop("disabled", true);
@@ -36,24 +25,12 @@
         }
 
         // Enable / disable "hide_answer" only settings.
-        if ($("input[name=faq_display]:checked").val() != "hide_answer") {
-            $("input[name=faq_hide_qa_accordion]").prop("disabled", true);
-        }
-        else {
-            $("input[name=faq_hide_qa_accordion]").prop("disabled", false);
-        }
+        $("input[name=faq_hide_qa_accordion]").prop("disabled", $("input[name=faq_display]:checked").val() != "hide_answer");
 
         // Enable / disable "new_page" only settings.
-        if ($("input[name=faq_display]:checked").val() != "new_page") {
-            $("input[name=faq_use_teaser]").prop("disabled", false);
-            $("input[name=faq_more_link]").prop("disabled", false);
-            $("input[name=faq_disable_node_links]").prop("disabled", false);
-        }
-        else {
-            $("input[name=faq_use_teaser]").prop("disabled", true);
-            $("input[name=faq_more_link]").prop("disabled", true);
-            $("input[name=faq_disable_node_links]").prop("disabled", true);
-        }
+        $("input[name=faq_use_teaser]").prop("disabled", $("input[name=faq_display]:checked").val() == "new_page");
+        $("input[name=faq_more_link]").prop("disabled", $("input[name=faq_display]:checked").val() == "new_page");
+        $("input[name=faq_disable_node_links]").prop("disabled", $("input[name=faq_display]:checked").val() == "new_page");
         teaser_handler(event);
 
         // Enable / disable "new_page" and "questions_top" only settings.
@@ -81,13 +58,8 @@
     }
 
     function questions_top_handler(event) {
-        $("input[name=faq_display]").val() == "questions_top" ?
-            $("input[name=faq_group_questions_top]").prop("disabled", false):
-            $("input[name=faq_group_questions_top]").prop("disabled", true);
-
-        $("input[name=faq_display]").val() == "questions_top" ?
-            $("input[name=faq_answer_category_name]").prop("disabled", false):
-            $("input[name=faq_answer_category_name]").prop("disabled", true);
+        $("input[name=faq_group_questions_top]").prop("disabled", $("input[name=faq_display]").val() != "questions_top");
+        $("input[name=faq_answer_category_name]").prop("disabled", $("input[name=faq_display]").val() != "questions_top");
     }
 
     function child_term_handler(event) {
@@ -101,34 +73,18 @@
 
     function categories_handler(event) {
         if ($("input[name=faq_display]").val() == "questions_top") {
-            $("input[name=faq_category_display]:checked").val() == "categories_inline" ?
-                $("input[name=faq_group_questions_top]").prop("disabled", false):
-                $("input[name=faq_group_questions_top]").prop("disabled", true);
-            $("input[name=faq_category_display]:checked").val() == "new_page" ?
-                $("input[name=faq_answer_category_name]").prop("disabled", true):
-                $("input[name=faq_answer_category_name]").prop("disabled", false);
+            $("input[name=faq_group_questions_top]").prop("disabled", $("input[name=faq_category_display]:checked").val() != "categories_inline"):
+            $("input[name=faq_answer_category_name]").prop("disabled", $("input[name=faq_category_display]:checked").val() == "new_page"):
         }
         else {
             $("input[name=faq_group_questions_top]").prop("disabled", true);
         }
 
         // Enable / disable "hide_qa" only settings.
-        if ($("input[name=faq_category_display]:checked").val() != "hide_qa") {
-            $("input[name=faq_category_hide_qa_accordion]").prop("disabled", true);
-        }
-        else {
-            $("input[name=faq_category_hide_qa_accordion]").prop("disabled", false);
-        }
-
-        $("input[name=faq_category_display]:checked").val() == "categories_inline" ?
-            $("input[name=faq_hide_child_terms]").prop("disabled", true):
-            $("input[name=faq_hide_child_terms]").prop("disabled", false);
-        $("input[name=faq_category_display]:checked").val() == "categories_inline" ?
-            $("input[name=faq_show_term_page_children]").prop("disabled", true):
-            $("input[name=faq_show_term_page_children]").prop("disabled", false);
-        $("input[name=faq_category_display]:checked").val() == "new_page" ?
-            $("select[name=faq_category_listing]").prop("disabled", false):
-            $("select[name=faq_category_listing]").prop("disabled", true);
+        $("input[name=faq_category_hide_qa_accordion]").prop("disabled", $("input[name=faq_category_display]:checked").val() != "hide_qa");
+        $("input[name=faq_hide_child_terms]").prop("disabled", $("input[name=faq_category_display]:checked").val() == "categories_inline");
+        $("input[name=faq_show_term_page_children]").prop("disabled", $("input[name=faq_category_display]:checked").val() == "categories_inline");
+        $("select[name=faq_category_listing]").prop("disabled", $("input[name=faq_category_display]:checked").val() != "new_page"):
 
         child_term_handler();
     }
