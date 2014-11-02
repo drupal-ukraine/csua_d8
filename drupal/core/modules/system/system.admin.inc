@@ -304,7 +304,7 @@ function theme_system_modules_uninstall($variables) {
   $rows = array();
   foreach (Element::children($form['modules']) as $module) {
     if (!empty($form['modules'][$module]['#required_by'])) {
-      $disabled_message = format_plural(count($form['modules'][$module]['#required_by']),
+      $disabled_message = \Drupal::translation()->formatPlural(count($form['modules'][$module]['#required_by']),
         'To uninstall @module, the following module must be uninstalled first: @required_modules',
         'To uninstall @module, the following modules must be uninstalled first: @required_modules',
         array('@module' => $form['modules'][$module]['#module_name'], '@required_modules' => implode(', ', $form['modules'][$module]['#required_by'])));
