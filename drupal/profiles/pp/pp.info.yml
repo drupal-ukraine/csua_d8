@@ -20,4 +20,3 @@ dependencies:
   - language
 # custom modules
   - aes
-  - faq
