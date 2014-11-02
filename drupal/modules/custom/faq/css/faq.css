@@ -45,11 +45,11 @@ div.faq-detailed-question {
 }
 
 .faq .collapsible {
-	display: block;
+  display: block;
 }
 
 .faq .collapsed {
-	display: none;
+  display: none;
 }
 
 .faq #faq-expand-all {
