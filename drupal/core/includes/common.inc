@@ -392,19 +392,6 @@ function format_xml_elements($array) {
  * called by this function, make sure not to pass already-localized strings to
  * it.
  *
- * For example:
- * @code
- *   $output = format_plural($node->comment_count, '1 comment', '@count comments');
- * @endcode
- *
- * Example with additional replacements:
- * @code
- *   $output = format_plural($update_count,
- *     'Changed the content type of 1 post from %old-type to %new-type.',
- *     'Changed the content type of @count posts from %old-type to %new-type.',
- *     array('%old-type' => $info->old_type, '%new-type' => $info->new_type));
- * @endcode
- *
  * @param $count
  *   The item count to display.
  * @param $singular

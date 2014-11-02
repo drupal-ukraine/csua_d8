@@ -688,10 +688,7 @@ function template_preprocess_form_element_label(&$variables) {
  * function batch_test_finished($success, $results, $operations) {
  *   // The 'success' parameter means no fatal PHP errors were detected. All
  *   // other error management should be handled using 'results'.
- *   if ($success) {
- *     $message = format_plural(count($results), 'One post processed.', '@count posts processed.');
- *   }
- *   else {
+ *   if (!$success) {
  *     $message = t('Finished with an error.');
  *   }
  *   drupal_set_message($message);

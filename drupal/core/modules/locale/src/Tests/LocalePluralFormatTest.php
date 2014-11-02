@@ -34,7 +34,7 @@ class LocalePluralFormatTest extends WebTestBase {
   }
 
   /**
-   * Tests locale_get_plural() and format_plural() functionality.
+   * Tests locale_get_plural() functionality.
    */
   public function testGetPluralFormat() {
     // Import some .po files with formulas to set up the environment.
