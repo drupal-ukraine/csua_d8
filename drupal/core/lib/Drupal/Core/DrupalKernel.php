@@ -444,12 +444,11 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
     UrlHelper::setAllowedProtocols($allowed_protocols);
   }
 
-  /**
-   * {@inheritdoc}
-   *
-   * @todo Invoke proper request/response/terminate events.
-   */
-  public function handlePageCache(Request $request) {
+    /**
+     * @param Request $request
+     * @return $this|Response
+     */
+    public function handlePageCache(Request $request) {
     $this->boot();
     $this->initializeCookieGlobals($request);
 
