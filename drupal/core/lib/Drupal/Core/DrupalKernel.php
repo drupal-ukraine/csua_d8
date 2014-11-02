@@ -474,8 +474,7 @@ class DrupalKernel implements DrupalKernelInterface, TerminableInterface {
 
         // We are done.
         $response->prepare($request);
-        $response->send();
-        exit;
+        return $response->send();
       }
     }
     return $this;
