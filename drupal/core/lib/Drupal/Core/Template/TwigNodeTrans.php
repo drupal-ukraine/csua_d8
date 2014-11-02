@@ -51,7 +51,7 @@ class TwigNodeTrans extends \Twig_Node {
     }
 
     // Start writing with the function to be called.
-    $compiler->write('echo ' . (empty($plural) ? 't' : '\Drupal::translation()->formatPlural') . '(');
+    $compiler->write('echo ' . (empty($plural) ? 't' : 'format_plural') . '(');
 
     // Move the count to the beginning of the parameters list.
     if (!empty($plural)) {

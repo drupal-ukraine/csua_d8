@@ -452,7 +452,7 @@ function format_plural($count, $singular, $plural, array $args = array(), array 
  */
 function format_size($size, $langcode = NULL) {
   if ($size < Bytes::KILOBYTE) {
-    return \Drupal::translation()->formatPlural($size, '1 byte', '@count bytes', array(), array('langcode' => $langcode));
+    return format_plural($size, '1 byte', '@count bytes', array(), array('langcode' => $langcode));
   }
   else {
     $size = $size / Bytes::KILOBYTE; // Convert bytes to kilobytes.
