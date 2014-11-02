@@ -64,7 +64,7 @@ class FormTestValidateForm extends FormBase {
       // Alter the form element.
       $form['name']['#value'] = '#value changed by #validate';
       // Alter the submitted value in $form_state.
-      form_set_value($form['name'], 'value changed by form_set_value() in #validate', $form_state);
+      $form_state->setValueForElement($form['name'], 'value changed by form_set_value() in #validate');
       // Output the element's value from $form_state.
       drupal_set_message(t('@label value: @value', array('@label' => $form['name']['#title'], '@value' => $form_state->getValue('name'))));
 
