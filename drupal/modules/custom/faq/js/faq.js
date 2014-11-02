@@ -1,138 +1,131 @@
 (function ($, Drupal, drupalSettings) {
-    
+
     "use strict";
-    
+
     function teaser_handler(event) {
         if ($("input[name=faq_display]:checked").val() != "new_page") {
             if ($("input[name=faq_use_teaser]:checked").val() == 1) {
-                $("input[name=faq_more_link]").removeAttr("disabled");
+                $("input[name=faq_more_link]").prop("disabled", false);
             }
             else {
-                $("input[name=faq_more_link]").attr("disabled", "disabled");
+                $("input[name=faq_more_link]").prop("disabled", true);
             }
         }
     }
-    
+
     function faq_display_handler(event) {
         // Enable / disable "questions_inline" and "questions_top" only settings.
         if ($("input[name=faq_display]:checked").val() == "questions_inline" || $("input[name=faq_display]:checked").val() == "questions_top") {
-            $("input[name=faq_back_to_top]").removeAttr("disabled");
-            $("input[name=faq_qa_mark]").removeAttr("disabled");
+            $("input[name=faq_back_to_top]").prop("disabled", false);
+            $("input[name=faq_qa_mark]").prop("disabled", false);
             // Enable / disable label settings according to "qa_mark" setting.
             if ($("input[name=faq_qa_mark]:checked").val() == 1) {
-                $("input[name=faq_question_label]").removeAttr("disabled");
-                $("input[name=faq_answer_label]").removeAttr("disabled");
+                $("input[name=faq_question_label]").prop("disabled", false);
+                $("input[name=faq_answer_label]").prop("disabled", false);
             }
             else {
-                $("input[name=faq_question_label]").attr("disabled", "disabled");
-                $("input[name=faq_answer_label]").attr("disabled", "disabled");
+                $("input[name=faq_question_label]").prop("disabled", true);
+                $("input[name=faq_answer_label]").prop("disabled", true);
             }
         }
         else {
-            $("input[name=faq_back_to_top]").attr("disabled", "disabled");
-            $("input[name=faq_qa_mark]").attr("disabled", "disabled");
-            $("input[name=faq_question_label]").attr("disabled", "disabled");
-            $("input[name=faq_answer_label]").attr("disabled", "disabled");
+            $("input[name=faq_back_to_top]").prop("disabled", true);
+            $("input[name=faq_qa_mark]").prop("disabled", true);
+            $("input[name=faq_question_label]").prop("disabled", true);
+            $("input[name=faq_answer_label]").prop("disabled", true);
         }
 
         // Enable / disable "hide_answer" only settings.
         if ($("input[name=faq_display]:checked").val() != "hide_answer") {
-            $("input[name=faq_hide_qa_accordion]").attr("disabled", "disabled");
+            $("input[name=faq_hide_qa_accordion]").prop("disabled", true);
         }
         else {
-            $("input[name=faq_hide_qa_accordion]").removeAttr("disabled");
+            $("input[name=faq_hide_qa_accordion]").prop("disabled", false);
         }
 
         // Enable / disable "new_page" only settings.
         if ($("input[name=faq_display]:checked").val() != "new_page") {
-            $("input[name=faq_use_teaser]").removeAttr("disabled");
-            $("input[name=faq_more_link]").removeAttr("disabled");
-            $("input[name=faq_disable_node_links]").removeAttr("disabled");
+            $("input[name=faq_use_teaser]").prop("disabled", false);
+            $("input[name=faq_more_link]").prop("disabled", false);
+            $("input[name=faq_disable_node_links]").prop("disabled", false);
         }
         else {
-            $("input[name=faq_use_teaser]").attr("disabled", "disabled");
-            $("input[name=faq_more_link]").attr("disabled", "disabled");
-            $("input[name=faq_disable_node_links]").attr("disabled", "disabled");
+            $("input[name=faq_use_teaser]").prop("disabled", true);
+            $("input[name=faq_more_link]").prop("disabled", true);
+            $("input[name=faq_disable_node_links]").prop("disabled", true);
         }
         teaser_handler(event);
 
         // Enable / disable "new_page" and "questions_top" only settings.
         if ($("input[name=faq_display]:checked").val() == "new_page" ||
             $("input[name=faq_display]:checked").val() == "questions_top") {
-            $("select[name=faq_question_listing]").removeAttr("disabled");
+            $("select[name=faq_question_listing]").prop("disabled", false);
         }
         else {
-            $("select[name=faq_question_listing]").attr("disabled", "disabled");
+            $("select[name=faq_question_listing]").prop("disabled", true);
         }
     }
-    
+
     function qa_mark_handler(event) {
         if ($("input[name=faq_display]:checked").val() == "questions_inline") {
             // Enable / disable label settings according to "qa_mark" setting.
             if ($("input[name=faq_qa_mark]:checked").val() == 1) {
-                $("input[name=faq_question_label]").removeAttr("disabled");
-                $("input[name=faq_answer_label]").removeAttr("disabled");
+                $("input[name=faq_question_label]").prop("disabled", false);
+                $("input[name=faq_answer_label]").prop("disabled", false);
             }
             else {
-                $("input[name=faq_question_label]").attr("disabled", "disabled");
-                $("input[name=faq_answer_label]").attr("disabled", "disabled");
+                $("input[name=faq_question_label]").prop("disabled", true);
+                $("input[name=faq_answer_label]").prop("disabled", true);
             }
         }
     }
-    
+
     function questions_top_handler(event) {
         $("input[name=faq_display]").val() == "questions_top" ?
-            $("input[name=faq_group_questions_top]").removeAttr("disabled"):
-            $("input[name=faq_group_questions_top]").attr("disabled", "disabled");
+            $("input[name=faq_group_questions_top]").prop("disabled", true);
 
         $("input[name=faq_display]").val() == "questions_top" ?
-            $("input[name=faq_answer_category_name]").removeAttr("disabled"):
-            $("input[name=faq_answer_category_name]").attr("disabled", "disabled");
+            $("input[name=faq_answer_category_name]").prop("disabled", true);
     }
-    
+
     function child_term_handler(event) {
         if ($("input[name=faq_hide_child_terms]:checked").val() == 1) {
-            $("input[name=faq_show_term_page_children]").attr("disabled", "disabled");
+            $("input[name=faq_show_term_page_children]").prop("disabled", true);
         }
         else if ($("input[name=faq_category_display]:checked").val() != "categories_inline") {
-            $("input[name=faq_show_term_page_children]").removeAttr("disabled");
+            $("input[name=faq_show_term_page_children]").prop("disabled", false);
         }
     }
-    
+
     function categories_handler(event) {
         if ($("input[name=faq_display]").val() == "questions_top") {
             $("input[name=faq_category_display]:checked").val() == "categories_inline" ?
-                $("input[name=faq_group_questions_top]").removeAttr("disabled"):
-                $("input[name=faq_group_questions_top]").attr("disabled", "disabled");
+                $("input[name=faq_group_questions_top]").prop("disabled", true);
             $("input[name=faq_category_display]:checked").val() == "new_page" ?
-                $("input[name=faq_answer_category_name]").attr("disabled", "disabled"):
-                $("input[name=faq_answer_category_name]").removeAttr("disabled");
+                $("input[name=faq_answer_category_name]").prop("disabled", false);
         }
         else {
-            $("input[name=faq_group_questions_top]").attr("disabled", "disabled");
+            $("input[name=faq_group_questions_top]").prop("disabled", true);
         }
 
         // Enable / disable "hide_qa" only settings.
         if ($("input[name=faq_category_display]:checked").val() != "hide_qa") {
-            $("input[name=faq_category_hide_qa_accordion]").attr("disabled", "disabled");
+            $("input[name=faq_category_hide_qa_accordion]").prop("disabled", true);
         }
         else {
-            $("input[name=faq_category_hide_qa_accordion]").removeAttr("disabled");
+            $("input[name=faq_category_hide_qa_accordion]").prop("disabled", false);
         }
 
         $("input[name=faq_category_display]:checked").val() == "categories_inline" ?
-            $("input[name=faq_hide_child_terms]").attr("disabled", "disabled"):
-            $("input[name=faq_hide_child_terms]").removeAttr("disabled");
+            $("input[name=faq_hide_child_terms]").prop("disabled", false):
         $("input[name=faq_category_display]:checked").val() == "categories_inline" ?
-            $("input[name=faq_show_term_page_children]").attr("disabled", "disabled"):
-            $("input[name=faq_show_term_page_children]").removeAttr("disabled");
+            $("input[name=faq_show_term_page_children]").prop("disabled", false):
         $("input[name=faq_category_display]:checked").val() == "new_page" ?
-            $("select[name=faq_category_listing]").removeAttr("disabled"):
-            $("select[name=faq_category_listing]").attr("disabled", "disabled");
+            $("select[name=faq_category_listing]").prop("disabled", true);
 
         child_term_handler();
     }
-    
+
     Drupal.behaviors.initFaqModule = {
         attach: function (context, settings) {
             // Hide/show answer for a question.
@@ -254,20 +247,20 @@
                     });
                 });
             }
-            
+
             // Handle faq_category_settings_form.
             faq_display_handler();
             questions_top_handler();
             categories_handler();
             teaser_handler();
-            
+
             $("input[name=faq_display]:not(.faq-processed)", context).addClass('faq-processed').bind("click", faq_display_handler);
             $("input[name=faq_qa_mark]:not(.faq-processed)", context).addClass('faq-processed').bind("click", qa_mark_handler);
             $("input[name=faq_use_teaser]:not(.faq-processed)", context).addClass('faq-processed').bind("click", teaser_handler);
             $("input[name=faq_category_display]:not(.faq-processed)", context).addClass('faq-processed').bind("click", categories_handler);
             $("input[name=faq_hide_child_terms]:not(.faq-processed)", context).addClass('faq-processed').bind("click", child_term_handler);
-    
+
         }
     };
-    
+
 })(jQuery, Drupal, drupalSettings);
