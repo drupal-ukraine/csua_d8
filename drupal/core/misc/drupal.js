@@ -336,6 +336,9 @@ if (window.jQuery) {
    * Drupal.t() is called by this function, make sure not to pass
    * already-localized strings to it.
    *
+   * See the documentation of the server-side format_plural() function for
+   * further details.
+   *
    * @param {Number} count
    *   The item count to display.
    * @param {String} singular
