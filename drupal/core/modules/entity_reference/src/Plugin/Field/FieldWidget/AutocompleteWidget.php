@@ -89,7 +89,7 @@ class AutocompleteWidget extends AutocompleteWidgetBase {
           // Keep the weight property.
           '_weight' => $element['#weight'],
         );
-        // Change the element['#parents'], so in form_set_value() we
+        // Change the element['#parents'], so in $form_state->setValueForElement() we
         // populate the correct key.
         array_pop($element['#parents']);
       }

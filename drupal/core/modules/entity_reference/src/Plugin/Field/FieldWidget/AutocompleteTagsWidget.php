@@ -80,7 +80,7 @@ class AutocompleteTagsWidget extends AutocompleteWidgetBase {
         }
       }
     };
-    // Change the element['#parents'], so in form_set_value() we
+    // Change the element['#parents'], so in $form_state->setValueForElement() we
     // populate the correct key.
     array_pop($element['#parents']);
     $form_state->setValueForElement($element, $value);
