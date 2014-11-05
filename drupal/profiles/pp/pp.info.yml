@@ -18,3 +18,6 @@ dependencies:
   - quickedit
   - views_ui
   - language
+# custom modules
+  - aes
+  - faq

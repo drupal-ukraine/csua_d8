@@ -1,0 +1,7 @@
+faq-scripts:
+    version: VERSION
+    js:
+        js/faq.js: {}
+    dependencies:
+        - core/jquery
+        - core/drupal
