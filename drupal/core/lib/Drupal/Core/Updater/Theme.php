@@ -76,8 +76,8 @@ class Theme extends Updater implements UpdaterInterface {
   public function postInstall() {
     // Update the theme info.
     clearstatcache();
-		\Drupal::service('theme_handler')->rebuildThemeData();
-	}
+	\Drupal::service('theme_handler')->rebuildThemeData();
+  }
 
   /**
    * Overrides Drupal\Core\Updater\Updater::postInstallTasks().
