@@ -737,7 +737,7 @@ function system_check_directory($form_element, FormStateInterface $form_state) {
  *   array is returned.
  *
  * @see system_rebuild_module_data()
- * @see system_rebuild_theme_data()
+ * @see \Drupal::service('theme_handler')->rebuildThemeData()
  */
 function system_get_info($type, $name = NULL) {
   $info = array();

@@ -123,7 +123,7 @@ class UpdateManager implements UpdateManagerInterface {
       if (empty($this->projects)) {
         // Still empty, so we have to rebuild.
         $module_data = system_rebuild_module_data();
-        $theme_data = system_rebuild_theme_data();
+        $theme_data = \Drupal::service('theme_handler')->rebuildThemeData();
         $project_info = new ProjectInfo();
         $project_info->processInfoList($this->projects, $module_data, 'module', TRUE);
         $project_info->processInfoList($this->projects, $theme_data, 'theme', TRUE);

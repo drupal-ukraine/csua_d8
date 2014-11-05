@@ -275,7 +275,7 @@ function drupal_get_filename($type, $name, $filename = NULL) {
       }
     }
     // If still unknown, retrieve the file list prepared in state by
-    // system_rebuild_module_data() and system_rebuild_theme_data().
+    // system_rebuild_module_data() and \Drupal::service('theme_handler')->rebuildThemeData().
     if (!isset($files[$type][$name]) && \Drupal::hasService('state')) {
       $files[$type] += \Drupal::state()->get('system.' . $type . '.files', array());
     }
