@@ -64,7 +64,7 @@ function _drupal_maintenance_theme() {
   }
 
   // Ensure that system.module is loaded.
-  if (!function_exists('system_rebuild_theme_data')) {
+  if (!function_exists(\Drupal::service('theme_handler')->rebuildThemeData())) {
     $module_handler = \Drupal::moduleHandler();
     $module_handler->addModule('system', 'core/modules/system');
     $module_handler->load('system');
