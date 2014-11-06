@@ -268,7 +268,6 @@ class FormBuilder implements FormBuilderInterface, FormValidatorInterface, FormS
     // If the form returns some kind of response, deliver it.
     if ($response instanceof Response) {
       $this->sendResponse($response);
-      exit;
     }
 
     // If this was a successful submission of a single-step form or the last
@@ -419,7 +418,6 @@ class FormBuilder implements FormBuilderInterface, FormValidatorInterface, FormS
     // If the form returns some kind of response, deliver it.
     if ($form instanceof Response) {
       $this->sendResponse($form);
-      exit;
     }
     $form['#form_id'] = $form_id;
 
